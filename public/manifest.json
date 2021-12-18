@@ -1,25 +1,44 @@
-{
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}
+{"dir" : "ltr",
+  "lang" : "en",
+  "name" : "Stonks Wallet",
+  "scope" : "/",
+  "display" : "standalone",
+  "start_url" : "/",
+  "short_name" : "Stonks",
+  "theme_color" : "black",
+  "description" : "A Wallet to save your Stonks",
+  "orientation" : "any",
+  "background_color" : "white",
+  "categories": ["wallet", "stonks", "stocks"],
+  "generated" : "true",
+  "intent_filters": {
+      "scope_url_scheme": "https",
+      "scope_url_host": "cc-pw2-t1.evandrouzeda.repl.co",
+      "scope_url_path": "/"
+  },
+  "icons" : [
+      {
+          "src": "_img/icon-72x72.png",
+          "sizes": "72x72"
+      },
+      {
+          "src": "_img/icon-96x96.png",
+          "sizes": "96x96"
+      },
+      {
+          "src": "_img/icon-128x128.png",
+          "sizes": "128x128"
+      },
+      {
+          "src": "_img/icon-192x192.png",
+          "sizes": "192x192"
+      },
+      {
+          "src": "_img/icon-384x384.png",
+          "sizes": "384x384"
+      },
+      {
+          "src": "_img/icon-512x512.png",
+          "sizes": "512x512"
+      }
+  ]}
