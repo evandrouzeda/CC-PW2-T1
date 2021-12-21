@@ -13,7 +13,7 @@
   "generated" : "true",
   "intent_filters": {
       "scope_url_scheme": "https",
-      "scope_url_host": "cc-pw2-t1.evandrouzeda.repl.co",
+      "scope_url_host": "cc-pw-2-t1.vercel.app",
       "scope_url_path": "/"
   },
   "icons" : [
