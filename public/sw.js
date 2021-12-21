@@ -25,7 +25,7 @@ self.addEventListener('fetch', function (event) {
     event.respondWith(
         fetch(event.request).catch(async () => {
             if (event.request.destination === "document") {
-                return caches.match('offline.html');
+                return caches.match('index.html');
             } else
                 return caches.match(event.request);
         }),
