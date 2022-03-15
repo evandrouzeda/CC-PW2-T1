@@ -5,7 +5,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import Home from './Home'
 import Menu from './Menu'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Ativo from './componentes/Ativo'
+import Ativo from './componentes/Ativo/Ativo'
+import Login from './componentes/Login/Login'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/ativos" element={<Ativo />} />
+        <Route exact path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
