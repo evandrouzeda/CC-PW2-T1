@@ -6,15 +6,13 @@ import CRUD from "../CRUD";
 
 function Ativo() {
 
-    const [listaObjetos, setListaObjetos] = useState(
-        localStorage.getItem('LIVROSPWA-AULA/listaobjetos')
-        ? JSON.parse(localStorage.getItem('LIVROSPWA-AULA/listaobjetos')) : []);
+    const [listaObjetos, setListaObjetos] = useState([]);
 
-    const [alerta, setAlerta] = useState( { status: "", message: "" });
+    const [alerta, setAlerta] = useState({ status: "", message: "" });
 
     //const [sequenciaCodigo, setSequenciaCodigo] = useState(0);
 
-    const [objeto, setObjeto] = useState({_id: 0, nome: "", distribuicao: "", tipo: "", qtd:0});
+    const [objeto, setObjeto] = useState({ _id: 0, nome: "", distribuicao: "", tipo: "", qtd: 0 });
 
     const [editar, setEditar] = useState(false);
 
@@ -24,51 +22,51 @@ function Ativo() {
             const result = await new CRUD().update("ativo", objeto)
             console.log(result);
         } else { // novo ativo
-            console.log("entrou aqui");
-                console.log("entrou aqui");
-                const ativo = {
-                    nome: objeto.nome,
-                    distribuicao: objeto.distribuicao,
-                    tipo: objeto.tipo,
-                    qtd: objeto.qtd,
-                    carteira: "622e01096d626936c5383c91"
-                }
-                const result = await new CRUD().create("ativo", ativo)
-                console.log(result);
-                getAtivos()
+            const ativo = {
+                nome: objeto.nome,
+                distribuicao: objeto.distribuicao,
+                tipo: objeto.tipo,
+                qtd: objeto.qtd,
+                carteira: "622e01096d626936c5383c91"
+            }
+            const result = await new CRUD().create("ativo", ativo)
+            console.log(result);
         }
-    };  
-	
+        getAtivos()
+    };
+
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         setObjeto({ ...objeto, [name]: value });
-    }	
+    }
 
     const acaoRemover = async objeto => {
-        if (window.confirm("Remover este ativo?")){
+        if (window.confirm("Remover este ativo?")) {
             const result = await new CRUD().delete("ativo", objeto._id)
             console.log(result);
             getAtivos()
         }
     }
-    
-    const getAtivos = async () =>{
+
+    const getAtivos = async () => {
         const ativos = await new CRUD().read("ativo")
         console.log(ativos);
         setListaObjetos(ativos)
     }
-    useEffect( () => {
+    useEffect(() => {
         getAtivos()
-    },[]);
+    }, []);
 
     return (
         <AtivoContext.Provider value={
-            { listaObjetos, acaoRemover, alerta, setAlerta, objeto, setObjeto, 
-                editar, setEditar, acaoCadastrar, handleChange}
+            {
+                listaObjetos, acaoRemover, alerta, setAlerta, objeto, setObjeto,
+                editar, setEditar, acaoCadastrar, handleChange
+            }
         }>
             <Tabela />
-            <Formulario/>
+            <Formulario />
         </AtivoContext.Provider>
     )
 

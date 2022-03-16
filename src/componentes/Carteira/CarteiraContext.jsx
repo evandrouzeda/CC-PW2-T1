@@ -1,5 +1,5 @@
 import React from 'react'
 
-const AtivoContext = React.createContext();
+const CarteiraContext = React.createContext();
 
-export default AtivoContext;
+export default CarteiraContext;

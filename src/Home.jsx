@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CRUD from "./componentes/CRUD";
 
 const Home = () => {
-    const [listaObjetos] = useState(
-        localStorage.getItem('LIVROSPWA-AULA/listaobjetos')
-            ? JSON.parse(localStorage.getItem('LIVROSPWA-AULA/listaobjetos')) : []);
+    const [listaObjetos, setListaObjetos] = useState([]);
     const tipos = {"1": "Renda Fixa", "2": "Ações", "3": "Fundos Imobiliários"}
+    const getAtivos = async () =>{
+        const ativos = await new CRUD().read("ativo")
+        console.log(ativos);
+        setListaObjetos(ativos)
+    }
+    useEffect( () => {
+        getAtivos()
+    },[]);
     return (
         <div>
             <h1>Seus Ativos</h1>

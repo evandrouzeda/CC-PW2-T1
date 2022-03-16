@@ -9,13 +9,14 @@ const Menu = () => (
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
                         <a className="nav-link active" aria-current="page" href="/">Home</a>
+                        <a className="nav-link active" aria-current="page" href="/login">Login</a>
                     </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Manutenções
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="/ativos">Carteira</a></li>
+                            <li><a className="dropdown-item" href="/carteira">Carteira</a></li>
                             <li><a className="dropdown-item" href="/ativos">Ativos</a></li>
 
                         </ul>

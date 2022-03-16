@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import Alerta from "../Alerta";
-import AtivoContext from "./CarteiraContext";
+import CarteiraContext from "./CarteiraContext";
 
 function Formulario() {
 
-    const { objeto, handleChange, acaoCadastrar, alerta } = useContext(AtivoContext);
+    const { objeto, handleChange, acaoCadastrar, alerta } = useContext(CarteiraContext);
 
     return (
         <div className="modal fade" id="modalEdicao" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -27,8 +27,7 @@ function Formulario() {
                                     className="form-control"
                                     id="txtID"
                                     name="id"
-                                    value={objeto.id}
-                                    onChange={handleChange}
+                                    value={objeto._id}
                                 />
                             </div>
                             <div className="form-group">
@@ -43,51 +42,6 @@ function Formulario() {
                                     required
                                     value={objeto.nome}
                                     onChange={handleChange} />
-                            </div>
-                                     
-                            <div className="form-group">
-                                <label htmlFor="txtDistribuicao" className="form-label">
-                                    Distribuição
-                                </label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="txtDistribuicao"
-                                    name="distribuicao"
-                                    required
-                                    value={objeto.distribuicao}
-                                    onChange={handleChange} />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="txtTipo" className="form-label">
-                                    Tipo
-                                </label>
-                                <select
-                                    type="text"
-                                    className="form-control"
-                                    id="txtTipo"
-                                    name="tipo"
-                                    required
-                                    value={objeto.tipo}
-                                    onChange={handleChange}>
-                                        <option value="1">Renda Fixa</option>
-                                        <option value="2">Ações</option>
-                                        <option value="3">Fundos Imobiliários</option>
-                                    </select>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="txtQtd" className="form-label">
-                                    Quantidade
-                                </label>
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="txtQtd"
-                                    name="qtd"
-                                    value={objeto.qtd}
-                                    onChange={handleChange}
-                                    required
-                                />
                             </div>
                         </div>
 

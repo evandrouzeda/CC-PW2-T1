@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import AtivoContext from "./CarteiraContext";
+import CarteiraContext from "./CarteiraContext";
 import Alerta from '../Alerta'
 
 
 const Tabela = () => {
 
     const { listaObjetos, acaoRemover, alerta,
-        setObjeto, setEditar, setAlerta } = useContext(AtivoContext);
+        setObjeto, setEditar, setAlerta } = useContext(CarteiraContext);
 
     return (
         <div style={{ padding: '20px' }}>
@@ -30,16 +30,12 @@ const Tabela = () => {
                             <tr>
                                 <th scope="col"
                                     style={{ textAlign: 'center' }}>Ações</th>
-                                <th scope="col">ID</th>
                                 <th scope="col">Nome</th>
-                                <th scope="col">Distribuição</th>
-                                <th scope="col">Tipo</th>
-                                <th scope="col">Qtd</th>
                             </tr>
                         </thead>
                         <tbody>
                             {listaObjetos.map(objeto => (
-                                <tr key={objeto.id}>
+                                <tr key={objeto._id}>
                                     <th scope="row" style={{ textAlign: 'center' }}>
                                         <button type="button" className="btn btn-info"
                                             data-bs-toggle="modal" data-bs-target="#modalEdicao"
@@ -57,11 +53,7 @@ const Tabela = () => {
                                             <i className="bi bi-trash"></i>
                                         </button>
                                     </th>
-                                    <td>{objeto.id}</td>
                                     <td>{objeto.nome}</td>
-                                    <td>{objeto.distribuicao}</td>
-                                    <td>{objeto.tipo}</td>
-                                    <td>{objeto.qtd}</td>
                                 </tr>
                             ))}
                         </tbody>

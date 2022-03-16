@@ -9,6 +9,8 @@ function Formulario() {
         const result = await new CRUD().create("login", credential)
         console.log(result)
         if(result.token) localStorage.setItem("token", result.token)
+
+        alert(result.status)
     }
 
     const handleChange = (e) => {

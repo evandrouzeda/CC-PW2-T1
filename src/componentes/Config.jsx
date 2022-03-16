@@ -1,3 +1,3 @@
 module.exports = {
-    enderecoapi: "http://sw.evandrouzeda.com"
+    enderecoapi: "https://sw.evandrouzeda.com"
 }
