@@ -12,7 +12,7 @@ function Ativo() {
 
     //const [sequenciaCodigo, setSequenciaCodigo] = useState(0);
 
-    const [objeto, setObjeto] = useState({ _id: 0, nome: "", distribuicao: "", tipo: "", qtd: 0 });
+    const [objeto, setObjeto] = useState({ _id: 0, nome: "", distribuicao: "", tipo: "", qtd: 0, carteira: "" });
 
     const [editar, setEditar] = useState(false);
 
@@ -27,7 +27,7 @@ function Ativo() {
                 distribuicao: objeto.distribuicao,
                 tipo: objeto.tipo,
                 qtd: objeto.qtd,
-                carteira: "622e01096d626936c5383c91"
+                carteira: objeto.carteira
             }
             const result = await new CRUD().create("ativo", ativo)
             console.log(result);

@@ -1,11 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import Alerta from "../Alerta";
 import AtivoContext from "./AtivoContext";
+import CRUD from "../CRUD";
 
 function Formulario() {
 
     const { objeto, handleChange, acaoCadastrar, alerta } = useContext(AtivoContext);
-
+    const [listaObjetos, setListaObjetos] = useState([]);
+  const getCarteira = async () => {
+        const ativos = await new CRUD().read("carteira")
+        console.log(ativos);
+        setListaObjetos(ativos)
+    }
+    useEffect(() => {
+        getCarteira()
+    }, []);
     return (
         <div className="modal fade" id="modalEdicao" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
@@ -73,6 +82,23 @@ function Formulario() {
                                         <option value="1">Renda Fixa</option>
                                         <option value="2">Ações</option>
                                         <option value="3">Fundos Imobiliários</option>
+                                    </select>
+                            </div>
+                          <div className="form-group">
+                                <label htmlFor="txtTipo" className="form-label">
+                                    Carteira
+                                </label>
+                                <select
+                                    type="text"
+                                    className="form-control"
+                                    id="txtCarteira"
+                                    name="carteira"
+                                    required
+                                    value={objeto.carteira}
+                                    onChange={handleChange}>
+                                  {listaObjetos.map(objeto => (
+                                      <option key={objeto._id} value={objeto._id}>{objeto.nome}</option>
+                                  ))}
                                     </select>
                             </div>
                             <div className="form-group">

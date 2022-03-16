@@ -38,7 +38,7 @@ const Tabela = () => {
                         </thead>
                         <tbody>
                             {listaObjetos.map(objeto => (
-                                <tr key={objeto.id}>
+                                <tr key={objeto._id}>
                                     <th scope="row" style={{ textAlign: 'center' }}>
                                         <button type="button" className="btn btn-info"
                                             data-bs-toggle="modal" data-bs-target="#modalEdicao"
